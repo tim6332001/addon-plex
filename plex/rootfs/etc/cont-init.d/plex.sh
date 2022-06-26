@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/command/with-contenv bashio
 # ==============================================================================
 # Home Assistant Community Add-on: Plex Media Server
 # Initializes all kinds of stuff on the first run of the Plex Media Server
@@ -66,7 +66,7 @@ if ! bashio::fs.file_exists "${prefs}"; then
     fi
 
     status=${response##*$'\n'}
-    response=${response%$status}
+    response="${response%"$status"}"
 
     if [[ "${status}" -ne 200 ]]; then
         bashio::log.debug "${response}"
